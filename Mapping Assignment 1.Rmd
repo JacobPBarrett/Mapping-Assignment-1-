@@ -17,7 +17,7 @@ library("rgdal")
 library("tidyverse")
 ```
 
-## Static Map: Minnesota's population by county
+## **Static Map**: Minnesota's population by county
 
 Made a map of Minnesota population by county: 
 
@@ -55,7 +55,7 @@ $~$
 **Data sampled from Minnesota Compass: https://www.mncompass.org/profiles/county**
 
 
-## Interactive Map: Alpine Creek Lakes (Sawtooth National Forest near Stanley, ID) 
+## **Interactive Map**: Alpine Creek Lakes, Sawtooth National Forest (Stanley, ID) 
 
 A map of my favorite basin of lakes in Idaho: 
 
