@@ -21,8 +21,6 @@ library("tidyverse")
 
 Made a map of Minnesota population by county: 
 
-Things to add: annotation, scalebar
-
 ```{r static, fig.width=9.5, fig.height=9}
 state <- map_data("state")
 county <- map_data("county")
@@ -44,19 +42,22 @@ ggplot() + geom_polygon(data = state, aes(x=long, y = lat, group = group),
           geom_polygon(data = counties, aes(x=long, y=lat, group=group, fill = population), color = "white") + 
           geom_point(data = st_paul, aes(x=x,y=y), color="black", shape=8, size=3) + 
   scale_fill_viridis_c(option = "D", trans = "log10") + 
-  coord_fixed(xlim = c(-98, -90),  ylim = c(43, 50), ratio = 1.3) + 
+  coord_fixed(xlim = c(-98, -89.5),  ylim = c(43, 50), ratio = 1.3) + 
   xlab("Longitude") + ylab("Latitude") + ggtitle("Population by County, MN") + 
   labs(caption="Above Map: Population of Minnesota by county.") + 
   north(counties, location = "bottomleft", scale = 0.05, symbol = 12, anchor = c(x= -91.5, y= 49)) + 
   scalebar(counties, dist = 50, dist_unit = "mi", transform = TRUE, model = "WGS84", location = "bottomleft", st.dist = 0.05, st.size = 3, anchor = c(x=-92,y=45)) + 
-  theme(plot.caption=element_text(size=15, hjust=0, margin=margin(15,0,0,0)))
+  theme(plot.caption=element_text(size=15, hjust=0, margin=margin(15,0,0,0))) + 
+  annotate("text", x = -97.75, y = 43.5, label = "Jake Barrett\n October 2021", size = 2.5)
 ```
 $~$
 
 **Data sampled from Minnesota Compass: https://www.mncompass.org/profiles/county**
 
 
-## Interactive Map: Alpine Creek Lakes 
+## Interactive Map: Alpine Creek Lakes (Sawtooth National Forest near Stanley, ID) 
+
+A map of my favorite basin of lakes in Idaho: 
 
 ```{r interactive map}
 alpine_creekOGR <- readOGR("./data/Mapping Assignment 1.kml")
